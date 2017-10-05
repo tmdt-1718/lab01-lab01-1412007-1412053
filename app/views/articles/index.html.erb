@@ -1,0 +1,21 @@
+<%= render partial: 'flash_message', locals: {messages: flash} %>
+
+<h1 class="mt-3">Articles</h1>
+<h3><%= @articles.count %> articles</h3> 
+
+<% @articles.each do |article| %>
+<%= render partial: "thumbnail", locals: {a: article}%>
+<% end %>
+
+</div>
+
+<div class="md-col-12 card-body " align="right">
+	<!-- <div class="row text-right" align="right"> -->
+		<div align="right" class="mr-4 mb-3 text-right">
+			<a href="" align="right">
+				<img border="0px" width="48px" src="/up-arrow.png">
+			</a>
+		</div>
+	<!-- </div> -->
+
+</div>
