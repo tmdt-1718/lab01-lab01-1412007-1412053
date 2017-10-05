@@ -3,8 +3,8 @@
 **MyBlog** là một bài tập môn TMDT. Ứng dụng cho phép người dùng gửi tin nhắn (email) cho người dùng khác.
 
 Thành viên:
-* [ ] **1412007** Lê Mỹ Anh (1412007)
-* [ ] **1412053** Nguyễn Huyền Quý Châu (1412053)
+* [x] **1412007** Lê Mỹ Anh (1412007)
+* [x] **1412053** Nguyễn Huyền Quý Châu (1412053)
 
 URL: **URL hosting của bài tập**
 
