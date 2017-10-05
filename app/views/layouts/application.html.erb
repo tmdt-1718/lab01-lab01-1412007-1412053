@@ -6,10 +6,11 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body class="<%= controller_name %> <%= action_name %>">
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a href="/articles" class="navbar-brand">
       <img src="/logo-khtn.png" width=100px alt="">
     </a>
@@ -39,7 +40,7 @@
           </li>
           <% end %>
         -->       
-
+        
         <ul class="nav navbar-nav ml-auto">
           <% if current_user %>
           <li>
@@ -51,75 +52,140 @@
             <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
           </li>
           <% else %>
-            <li class="nav-item">
-              <!-- <%= link_to "Sign up", login_path, class: "nav-link" %> -->
-             </li>
-            <% end %>
-          </ul> 
+          <li class="nav-item">
+            <!-- <%= link_to "Sign up", login_path, class: "nav-link" %> -->
+          </li>
+          <% end %>
+        </ul> 
 
-        </div>
-      </nav>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            sidebar
-          </div>
-          <div class="col-md-9">
-            <%= yield %>
-          </div>
-        </div>
       </div>
+    </nav>
+    <!-- <div class="container"> -->
+      <div class="row">
+        <div class="col-md-3 mt-3">
+          <div class="">
+            <!-- <div class="card"> -->
+              <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <!-- <div class="card-header">Nhạc Việt</div> -->
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#collapsableContent">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="collapsableContent">
+                  <ul class="navbar-nav">
+                    <div class="list-group">
+                      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                      <li>
+                        <div class="row"></div>
+                      </li>
+                      <li class="nav-item"><a href="/articles" class="nav-link">Albums</a></li>
+                      <li class="nav-item"><a href="/photos" class="nav-link">About</a></li>
+                      <li class="nav-item"><a href="/photos" class="nav-link">Blog</a></li>
+                    </div>
+                  </ul>
 
 
-      <div class="card-footer text-muted col-md-12">
-        <div class="row">
-          <div class="col-md-6 text-center">
-            <h3>MyBlog</h3>
-            <p>
-              © Copyright 2016 - 2017. All Rights Reserved. 
-            </p>
-            <p>
-              <a href="">Terms of Services | </a>
-              <a href="">Privacy</a>  
-            </p>
-          </div>
-          <div class="col-md-3">
-            <h3>Categories:</h3>
-            <ul>
-              <li><a href=""><i class="fa fa-file"></i> News</a></li>
-              <li><a href=""><i class="fa fa-android"></i> Android</a></li>
-              <li><a href=""><i class="fa fa-globe"></i> Web</a></li>
-              <li><a href=""><i class="fa fa-code"></i> C#</a></li>
-              <li><a href=""><i class="fa fa-code"></i> Java</a></li>
-              <li><a href=""><i class="fa fa-book"></i> Books</a></li>
-            </ul>
-          </div>
-      
-          <div class="col-md-3">
-            <h3>Contact:</h3>
-            <p>Have a question or feedback? Contact me!</p>
-            <p><a href="" title="Contact me!"><i class="fa fa-envelope"></i> Contact</a></p>
-            <h3>Follow:</h3>
-            <a href="" id="gh" target="_blank" title="Twitter">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-twitter fa-stack-1x"></i>
-              </span>
-              Twitter
-            </a>
-            <a href="" target="_blank" title="GitHub">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-square-o fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x"></i>
-              </span>
-              GitHub
-            </a>
-          </div>
-      
-      
-        </div>
-      </div>
 
-      <%= yield :js %>
-    </body>
-    </html>
+              <!-- <div class="list-group">
+                <a href="#" class="list-group-item">Home</a>
+                <a href="#" class="list-group-item">Albums</a>
+                <a href="#" class="list-group-item">About</a>
+                <a href="#" class="list-group-item">Blog</a> -->
+
+              </div>
+              <!-- </div> -->
+            </nav>
+          </div>
+          
+<!-- <nav class="navbar navbar-default sidebar" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>      
+    </div>
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
+            <li><a href="#">Modificar</a></li>
+            <li><a href="#">Reportar</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Informes</a></li>
+          </ul>
+        </li>          
+        <li ><a href="#">Libros</a></li>        
+        <li ><a href="#">Tags</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+</div>
+<div class="col-md-9">
+  <%= yield %>
+</div>
+</div>
+<!-- </div> -->
+
+
+<div class="card-footer text-muted col-md-12">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <h3>MyBlog</h3>
+      <p>
+        © Copyright 2016 - 2017. All Rights Reserved. 
+      </p>
+      <p>
+        <a href="">Terms of Services | </a>
+        <a href="">Privacy</a>  
+      </p>
+    </div>
+    <div class="col-md-3">
+      <h3>Categories:</h3>
+      <ul>
+        <li><a href=""><i class="fa fa-file"></i> News</a></li>
+        <li><a href=""><i class="fa fa-android"></i> Android</a></li>
+        <li><a href=""><i class="fa fa-globe"></i> Web</a></li>
+        <li><a href=""><i class="fa fa-code"></i> C#</a></li>
+        <li><a href=""><i class="fa fa-code"></i> Java</a></li>
+        <li><a href=""><i class="fa fa-book"></i> Books</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-3">
+      <h3>Contact:</h3>
+      <p>Have a question or feedback? Contact me!</p>
+      <p><a href="" title="Contact me!"><i class="fa fa-envelope"></i> Contact</a></p>
+      <h3>Follow:</h3>
+      <a href="" id="gh" target="_blank" title="Twitter">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+        Twitter
+      </a>
+      <a href="" target="_blank" title="GitHub">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa fa-github fa-stack-1x"></i>
+        </span>
+        GitHub
+      </a>
+    </div>
+
+
+  </div>
+</div>
+
+<%= yield :js %>
+</body>
+</html>
