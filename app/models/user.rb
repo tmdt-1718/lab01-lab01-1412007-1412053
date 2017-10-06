@@ -1,27 +1,27 @@
 class User < ApplicationRecord
   has_many :articles
 
-	has_secure_password
+  has_secure_password
 
-	def self.authenticate!(session_params)
-		user = User.authenticate(session_params)
+  def self.authenticate!(session_params)
+    user = User.authenticate(session_params)
 
-		if user.nil?
-			raise RecordNotFound
-		else
-			user
-		end
-	end
+    if user.nil?
+     raise RecordNotFound
+   else
+     user
+   end
+ end
 
-  def self.authenticate(session_params)
-  	user = User.find_by(email: session_params[:email])
-  	
-  	if user.authenticate(session_params[:password])
-  		user
-  	else
-  		false
-  	end
-  end
+  # def self.authenticate(session_params)
+  # 	user = User.find_by(email: session_params[:email])
+  
+  # 	if user.password == session_params[:password]
+  # 		user
+  # 	else
+  # 		false
+  # 	end
+  # end
 
   def self.authenticate?(session_params)
   	!User.authenticate(session_params).nil?
