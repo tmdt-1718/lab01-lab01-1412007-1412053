@@ -1,0 +1,32 @@
+<!-- <div class="article-thumbnail" highlight>
+  <div class="card-body">
+    <h4 class="card-title">
+    	<%= link_to article_path(a.id), class: "card-title" do %>
+    		<%= a.title %>
+    	<% end %>
+    	</h4>
+    <h6 class="card-subtitle mb-2 text-muted"><%= a.user.name %></h6>
+    <p class="card-text">
+    	<%= truncate(a.body) %>	
+    	</p>
+
+    <%= link_to article_path(a.id), class: 'card-link', remote: true, method: :delete do %> 
+    	Delete
+    <% end %>
+  </div>
+</div> -->
+
+<div class="album-thumbnail">
+    <div class="card mb-3">
+      <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+
+<!--   <%= image_tag @album.cover_url(:cover).to_s %>
+-->
+        <%= image_tag a.cover_url(:cover).to_s %>
+        <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div>

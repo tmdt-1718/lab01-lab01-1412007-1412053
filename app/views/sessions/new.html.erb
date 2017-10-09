@@ -1,4 +1,6 @@
-<div class="row">
+<%= render partial: 'flash_message', locals: {messages: flash} %>
+
+<div class="row mt-2">
 	<div class="col-md-12">
 		<h1>Login Page</h1>
 	</div>
@@ -17,7 +19,7 @@
 			<%= f.password_field :password, class: "form-control" %>
 		</div>
 
-		<button type="submit" class="btn btn-primary">Login</button>
+		<button type="submit" class="btn btn-primary mr-3">Login</button>
 		<%= link_to "Register new account", new_user_path %>
 		<% end %>
 
