@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate
   before_action :get_article, only: [:show, :edit, :update, :destroy]
 
-  add_breadcrumb "Articles", :articles_path
+  add_breadcrumb "Blog", :articles_path
 
   def new
     add_breadcrumb "New article", new_album_path
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-
+    add_breadcrumb "Edit article", edit_article_path
   end
 
   def update
