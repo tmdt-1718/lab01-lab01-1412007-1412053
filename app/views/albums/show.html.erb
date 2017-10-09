@@ -1,0 +1,82 @@
+<%= render partial: 'flash_message', locals: {messages: flash} %>
+
+<div class="text-center">
+	<%= image_tag @album.cover_url(:cover).to_s %>
+</div>
+<h1 class="mt-3 text-center"><%= @album.title %></h1>
+
+<h4 class="text-muted text-center"><%=@album.user.name%></h4>
+
+<% if @album.sumview.nil? %>
+<h5 class="text-muted text-center">0 views</h5>
+<% else %>
+<h5 class="text-muted text-center"><%= @album.sumview %> views</h5>
+<% end %>
+
+<!-- <h6 class="text-muted text-center"><%= @album.description %></h6> -->
+
+<blockquote class="blockquote text-center mb-4">
+	<p class="mb-0"><%= @album.description %></p>
+</blockquote>
+
+
+<div class="row container mt-3">
+	<% if session[:current_user_id] == @album.user.id%>
+	
+	<%= form_with scope: :photo, url: photos_path, local: true do |f|%>
+
+	<div class="form-group">
+
+		<label for="">Choose image</label>
+		
+		<%= f.file_field :image, class: "form-control" %>
+	</div>
+
+	<div class="row container mt-3">
+		<button type="submit" class="btn btn-primary">Add</button>
+	</div>
+
+	<% end %>
+	<% else %>
+	<% end %>
+
+</div>
+
+<div class="mb-5"></div>
+
+
+
+
+<% @album.photos.each do |photo| %>
+<div class="col-md-6" style="float: left">
+	<div class="card mb-3" style="border-width: 0">
+		<a href="/albums/<%= @album.id %>/<%= photo.id %>">
+			<img style="max-height: 455px; max-width: 455px" class="ml-1 mr-1 mt-1 mb-1 img-thumbnail" src="<%= photo.image %>">
+		</a>
+		
+		<div class="card-body">
+			<h4 class="text-muted"><%= photo.album.user.name%></h4>
+
+			<% if photo.view.nil? %>
+			<h5 class="text-muted">0 views</h5>
+			<% else %>
+			<h5 class="text-muted"><%= photo.view %> views</h5>
+			<% end %>
+
+<!-- 	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+	<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+</div>
+</div>
+</div>
+<% end %>
+
+<div class="md-col-12 card-body " align="right">
+	<!-- <div class="row text-right" align="right"> -->
+		<div align="right" class="mr-4 mb-3 text-right">
+			<a href="" align="right">
+				<img border="0px" width="48px" src="/up-arrow.png">
+			</a>
+		</div>
+		<!-- </div> -->
+
+	</div>

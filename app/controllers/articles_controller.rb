@@ -2,12 +2,14 @@ class ArticlesController < ApplicationController
   before_action :authenticate
   before_action :get_article, only: [:show, :edit, :update, :destroy]
 
+    add_breadcrumb "Articles", :articles_path
   def index
     @articles = Article.limit(10)
+    # add_breadcrumb "Articles / ", articles_path
   end
 
   def show
-    
+    add_breadcrumb "#{@article.title}", article_path
   end
 
   def edit
@@ -25,7 +27,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    
+
 
     begin
       @article.destroy!

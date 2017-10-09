@@ -1,0 +1,41 @@
+<%= render partial: 'flash_message', locals: {messages: flash} %>
+
+<div class="row">
+	<div class="col-md-12 mt-2">
+		<h1>Create Album</h1>
+	</div>
+</div>
+<div class="row mb-5">
+	<div class="col-md-12">
+		<%= form_with scope: :album, url: albums_path, local: true do |f|%>
+		<div class="form-group">
+			<label for="">Title</label>
+			<%= f.text_field :title, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<label for="">
+				Description
+			</label>
+			<%= f.text_area :description, class: "form-control" %>
+		</div>
+
+<!-- 
+		<label class="custom-file">Cover photo
+			<div class="row container mt-2">
+				<input type="file" id="file2">
+				<span class=""></span>				
+			</div>
+		</label> -->
+
+		<div class="form-group">
+			<label for="">Cover photo</label>
+			<%= f.file_field :cover, class: "form-control" %>
+		</div>
+		
+
+		<div class="row container mt-5">
+			<button type="submit" class="btn btn-primary">Save Album</button>
+		</div>		
+		<% end %>
+	</div>
+</div>

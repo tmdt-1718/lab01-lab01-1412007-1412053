@@ -1,0 +1,41 @@
+<h1 class="mt-3">Albums</h1>
+
+<a class="btn btn-primary mb-5" href="/albums/new" role="button">Create new album</a>
+
+<% @albums.each do |album| %>
+<div class="card mb-3">
+<!-- <% link_to album_path(album.id) do %>
+	<img class="card-img-top" src="<%= album.cover %>" alt="Card image cap" width='851'>
+	<% end %>
+-->
+<a href="/albums/<%= album.id %>">
+	<img class="card-img-top img-fluid" src="<%= album.cover %>" alt="">
+</a>
+<div class="card-body">
+	<a href="/albums/<%= album.id %>">
+		<h4 class="card-title"><%= album.title %></h4>
+	</a>
+
+	<h4 class="text-muted"><%= album.user.name%></h4>
+	<% if album.sumview.nil? %>
+	<h5 class="text-muted">0 views</h5>
+	<% else %>
+	<h5 class="text-muted"><%= album.sumview %> views</h5>
+	<% end %>
+
+<!-- 	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+	<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+</div>
+</div>
+<% end %>
+
+<div class="md-col-12 card-body " align="right">
+	<!-- <div class="row text-right" align="right"> -->
+		<div align="right" class="mr-4 mb-3 text-right">
+			<a href="" align="right">
+				<img border="0px" width="48px" src="/up-arrow.png">
+			</a>
+		</div>
+	<!-- </div> -->
+
+</div>

@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 			else
 				login(user)
 				flash[:success] = "Login successfully."
-				redirect_to articles_path
+				redirect_to home_path
 			end
 		end
 	end
