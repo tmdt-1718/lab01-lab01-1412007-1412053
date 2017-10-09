@@ -2,9 +2,28 @@ class ArticlesController < ApplicationController
   before_action :authenticate
   before_action :get_article, only: [:show, :edit, :update, :destroy]
 
-    add_breadcrumb "Articles", :articles_path
+  add_breadcrumb "Articles", :articles_path
+
+  def new
+    add_breadcrumb "New article", new_album_path
+  end
+
+  def create
+    begin
+      article = Article.create!(title: params[:article][:title], user_id: session[:current_user_id], body: params[:article][:body], image: params[:article][:image])
+      # @album = Album.last
+      flash[:success] = "Create article successfully."
+      # redirect_to album_path(Album.last.id)
+      redirect_to articles_path
+      
+    rescue ActiveRecord::RecordInvalid => e
+      flash[:error] = "Cannot create new article."
+      render :new
+    end
+  end
+
   def index
-    @articles = Article.limit(10)
+    @articles = Article.limit(10).order('created_at DESC')
     # add_breadcrumb "Articles / ", articles_path
   end
 
