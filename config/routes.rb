@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   end
 
   resources :photos, only: [:index]
+  resources :abouts, only: [:index]
 end
