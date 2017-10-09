@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   # get '/albums/:id/photos/new', to: 'albums#new', as: :new_album
   # post '/photos', to: 'photos#create', as: :photos
 
+
+  get '/articles/new', to: 'articles#new', as: :new_article
+  post '/articles', to: 'articles#create', as: :create_article
+
   get '/home', to: 'homes#index', as: :home
 
   delete '/albums/:id1/:id2', to: 'photos#destroy', as: nil

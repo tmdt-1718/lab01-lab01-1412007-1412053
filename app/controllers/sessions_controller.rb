@@ -18,6 +18,9 @@ class SessionsController < ApplicationController
 				render :new
 			else
 				login(user)
+
+				UserMailer.login_email(user).deliver_now
+
 				flash[:success] = "Login successfully."
 				redirect_to home_path
 			end
