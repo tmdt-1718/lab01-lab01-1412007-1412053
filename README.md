@@ -6,7 +6,7 @@ Thành viên:
 * [x] **1412007** Lê Mỹ Anh (1412007)
 * [x] **1412053** Nguyễn Huyền Quý Châu (1412053)
 
-URL: **https://tmdt-lab01-1412007-1412053.herokuapp.com/home**
+URL: **https://tmdt-lab01-1412007-1412053.herokuapp.com**
 
 ## Yêu cầu
 
